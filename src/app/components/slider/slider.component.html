@@ -1,19 +1,19 @@
 <div class="slider">
-    <div class="slide" *ngFor="let item of items">
-        <div class="slide-bg">
-            <img src="https://api.themoviedb.org/3/movie/1/images?api_key=284fa19e4c6343684d3737055273de9e&language=en-US" alt="">
-        </div>
-        <div class="slide-pane">
-            <h2 class="name">{{ item.title }}</h2>
-            <div class="meta">
-                <div class="info">
-                    <span class="rating">
-                        <span>star</span>
-                        <span class="rating-value">7.5</span>
-                        <span>/10</span>
-                    </span>
+    <ng-container *ngFor="let item of items; let i = index">
+        <div class="slide" *ngIf="i == currentSllideIndex" @slideFade>
+            <div class="slide-pane">
+                <h2 class="name">{{ item.title }} - {{i}}</h2>
+                <div class="meta">
+                    <div class="info">
+                        <span class="rating">
+                            <span>star</span>
+                            <span class="rating-value">{{ item.vote_average }}</span>
+                            <span>/10</span>
+                        </span>
+                        <span class="voute-count">{{ item.vote_count }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
